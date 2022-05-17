@@ -8,7 +8,6 @@ class Student
     public:
         Student(std::string const & login) : _login(login)
         {
-
         }
         std::string&    getLoginRef()
         {
@@ -18,42 +17,27 @@ class Student
         {
             return  this->_login;
         }
-
-}
-
-void    byPtr(std::string* str)
-{
-    *str += " and ponies";
-}
-
-void    byConstPtr(std::string const * str)
-{
-    std::cout << *str << std::endl;
-}
-
-void    byRef(std::string& str)
-{
-    str += " and ponies";
-}
-
-void    byConstRef(std::string const & str)
-{
-    std::cout << str << std::endl;
-}
+        std::string*    getLoginPtr()
+        {
+            return &(this->_login);
+        }
+        std::string const * getLoginPtrConst() const
+        {
+            return &(this->_login);
+        }
+};
 
 int main(void)
 {
-    std::string str = "i like butterflies";
-    std::cout << str << std::endl;
-    
-    byPtr(&str);
-    byConstPtr(&str);
+    Student     bob = Student("bfubar");
+    Student const   jim = Student("jfubar");
 
-    str = "i like otters";
-    std::cout << str << std::endl;
+    std::cout << bob.getLoginRefConst() << " " << jim.getLoginRefConst() << std::endl;
+    std::cout << *(bob.getLoginPtrConst())<< " " << *(jim.getLoginPtrConst()) << std::endl;
 
-    byRef(str);
-    byConstRef(str);
+    bob.getLoginRef() = "bobfubar";
+    std::cout << bob.getLoginRefConst() << std::endl;
 
-    return 0;
+    *(bob.getLoginPtr()) = "bobbyfubar";
+    std::cout << bob.getLoginRefConst() << std::endl;
 }
