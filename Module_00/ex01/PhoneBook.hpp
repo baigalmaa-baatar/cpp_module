@@ -1,20 +1,16 @@
-#ifndef TEST_H
-# define TEST_H
+#ifndef PHONEBOOK_H
+# define PHONEBOOK_H
 
-# include <iostream>
+#include "Contact.hpp"
 
-class PhoneBook
-{
+class PhoneBook{
     public:
-        std::string contacts[5][8]; // = {"firstName", "lastName", "nickname", "phoneNumber", "darkestSecret"};
-
         PhoneBook();
         ~PhoneBook();
-
-        // void    add(void);
         void    search(void);
+
     private:
-        Contact contacts;
+        Contact contacts[8];
 };
 
 #endif

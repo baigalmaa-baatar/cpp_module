@@ -1,16 +1,24 @@
 #ifndef CONTACT_H
-# define CONTACT_H
+# define CONTACT_
 
 #include <iostream>
 #include <string.h>
 
-class Contact
-{
+class Contact{
     public:
         Contact();
         ~Contact();
+
+        void    addContact();
+        void    displayAll();
+        void    displayOne(void);
+
     private:
-        void    add(void);
+        std::string _firstName;
+        std::string _lastName;
+        std::string _nickname;
+        std::string _phoneNumber;
+        std::string _darkestSecret;
 
 };
 
