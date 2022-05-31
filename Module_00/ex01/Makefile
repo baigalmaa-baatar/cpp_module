@@ -5,13 +5,13 @@
 #                                                     +:+ +:+         +:+      #
 #    By: bbaatar <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/05/31 16:01:00 by bbaatar           #+#    #+#              #
-#    Updated: 2022/05/31 16:01:01 by bbaatar          ###   ########.fr        #
+#    Created: 2022/05/31 16:01:50 by bbaatar           #+#    #+#              #
+#    Updated: 2022/05/31 16:01:52 by bbaatar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = megaphone
-SRCS = megaphone.cpp
+NAME = phonebook
+SRCS = PhoneBook.cpp Contact.cpp main.cpp
 
 OBJS = ${SRCS:.c=.o}
 CC		= clang++
