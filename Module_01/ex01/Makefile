@@ -10,29 +10,33 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = zombie
+NAME = ex01
 SRCS = main.cpp\
-		newZombie.cpp\
-		randomChump.cpp\
+		zombieHorde.cpp\
 		Zombie.cpp
 
-OBJS = ${SRCS:.c=.o}
+OBJS	= $(SRCS:.cpp=.o)
 CC		= clang++
+CFLAGS	= -Wall -Wextra -Werror
 RM		= rm -f
-CFLAGS = -Wall -Wextra -Werror -std=c++98
-.c.o:
-		${CC} ${CFLAGS} -c $< -o $@
 
-$(NAME): ${OBJS}
-		$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+all		:	$(NAME)
 
-all:	${NAME}
+.cpp.o	:
+			$(CC) $(CFLAGS) -c $< -o $(<:.cpp=.o)
 
-clean:
-		make clean
-		${RM} ${OBJS}
+$(NAME)	:	$(OBJS)
+			$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-fclean:	clean
-		${RM} ${NAME}
+sani	:	$(OBJS)
+		$(CC) $(CFLAGS) -fsanitize=address $(OBJS) -o $(NAME)
 
-re:		fclean all
+clean	:
+			$(RM) $(OBJS)
+
+fclean	:
+			$(RM) $(NAME) $(OBJS)
+
+re		: fclean all
+
+.PHONY	: all clean fclean re

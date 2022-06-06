@@ -15,14 +15,14 @@
 int main()
 {
     Zombie  *zombie;
-    std::string z;
+    std::string zombieName;
 
-    z = "New Zombie";
-    zombie = newZombie(z);
-    newZombie(z)->announce();
+    zombieName = "New Zombie";
+    zombie = newZombie(zombieName);
+    newZombie(zombieName)->announce();
     
-    z = "Random Chump";
-    randomChump(z);
+    zombieName = "Random Chump";
+    randomChump(zombieName);
 
     delete zombie;
     return(0);

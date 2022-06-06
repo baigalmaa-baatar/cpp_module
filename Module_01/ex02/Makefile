@@ -10,11 +10,8 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ex00
+NAME = ex02
 SRCS = main.cpp\
-		newZombie.cpp\
-		randomChump.cpp\
-		Zombie.cpp
 
 OBJS	= $(SRCS:.cpp=.o)
 CC		= clang++
