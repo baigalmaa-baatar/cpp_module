@@ -10,9 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ex05
+NAME = ex00
 SRCS = main.cpp\
-		Harl.cpp
+		Fixed.cpp
 
 OBJS	= $(SRCS:.cpp=.o)
 CC		= clang++

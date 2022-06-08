@@ -18,7 +18,7 @@ int main(int argc, char *argv[]){
     if (argc != 2)
     {
         std::cerr << "Insert either of these : DEBUG or INFO or WARNING or ERROR" << std::endl;
-        std::exit(1);
+        return 1;
     }
     std::string str_level[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
     int int_level = 4;

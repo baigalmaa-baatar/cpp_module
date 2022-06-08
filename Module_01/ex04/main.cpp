@@ -13,16 +13,17 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <stdlib.h>
 
 void    err_put(std::string error_msg)
 {
     std::cout << error_msg << std::endl;
-    std::exit(1);
+    std::exit(EXIT_FAILURE);
 }
 
 void    read_from_file(std::string& file_name, std::string& str)
 {
-    std::fstream fin(file_name, std::fstream::in);
+    std::ifstream fin(file_name.c_str());
     char ch;
 
     if (!fin)
@@ -53,7 +54,7 @@ std::string    ft_replace(std::string find_w, std::string replace_w, std::string
 
 void    output_to_file(std::string& file_name, std::string& str)
 {
-    std::ofstream fout (file_name);
+    std::ofstream fout (file_name.c_str());
 
     if (!fout)
         err_put("Couldn't open output file!");
@@ -77,7 +78,6 @@ int main(int argc, char **argv)
     }
     std::string file_name;
     std::string str;
-    
     file_name = argv[1];
     read_from_file(file_name, str);
     str = ft_replace(argv[2], argv[3], str);
