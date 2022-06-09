@@ -38,9 +38,10 @@ std::string    ft_replace(std::string find_w, std::string replace_w, std::string
 {
     std::string out_str;
     std::size_t len = find_w.length();
+    if (len == 0)
+        err_put("Can't search empty string!");
     std::size_t prev_pos = 0;
     std::size_t pos = str.find(find_w);
-
     while (pos != std::string::npos)
     {
         out_str += str.substr (prev_pos, pos - prev_pos);

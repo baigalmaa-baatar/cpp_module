@@ -44,11 +44,10 @@ void    Harl::error()
 
 void    Harl::complain(std::string level)
 {
-    int i;
     std::string level_list[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
     void    (Harl::*func_ptr[4])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
     void    (Harl::*func)(void) = NULL;
-    for (i = 0; i < 4; i++)
+    for (int i = 0; i < 4; i++)
     {
         if (level == level_list[i])
         {
@@ -56,13 +55,6 @@ void    Harl::complain(std::string level)
             break;
         }
     }
-    int k = 0;
     if (func)
-    {
-       while (k <= i)
-       {
-           (this->*func_ptr[k])();
-           k++;
-       }
-    }
+        (this->*func)();
 }

@@ -13,15 +13,17 @@
 #ifndef FIXED_H
 # define FIXED_H
 
+# include <iostream>
+
 class Fixed {
     private:
-        int fix_nbr;
-        static int const nbr_fracbits;
+        int _raw;
+        static int const _nbr_fracbits = 8;
 
     public:
-        Fixed(int fix_nbr = 0);                     //A default constructor
+        Fixed();                 //A default constructor
         Fixed(const Fixed& obj);                //A copy constructor
-        Fixed operator + (const Fixed& obj)     //A copy assignment operator overload
+        Fixed& operator=(const Fixed& obj);      //A copy assignment operator overload
         ~Fixed();                               //A destructor
         int getRawBits( void ) const;
         void setRawBits( int const raw );

@@ -19,7 +19,7 @@ int main()
 
     zombieName = "New Zombie";
     zombie = newZombie(zombieName);
-    newZombie(zombieName)->announce();
+    zombie->announce();
     
     zombieName = "Random Chump";
     randomChump(zombieName);

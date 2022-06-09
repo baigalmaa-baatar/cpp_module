@@ -32,13 +32,10 @@ int main(int argc, char *argv[]){
     switch (int_level) {
         case 0:
                 harl.complain("DEBUG");
-                break;
         case 1:
                 harl.complain("INFO");
-                break;
         case 2:
                 harl.complain("WARNING");
-                break;
         case 3:
                 harl.complain("ERROR");
                 break;
