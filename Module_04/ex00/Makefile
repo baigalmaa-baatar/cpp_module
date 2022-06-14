@@ -10,10 +10,13 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ex01
+NAME = ex00
 SRCS = main.cpp\
-		ClapTrap.cpp\
-		ScavTrap.cpp
+		Animal.cpp\
+		Dog.cpp\
+		Cat.cpp\
+		WrongAnimal.cpp\
+		WrongCat.cpp
 
 OBJS	= $(SRCS:.cpp=.o)
 CC		= c++

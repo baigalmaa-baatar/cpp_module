@@ -10,36 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "Animal.hpp"
+#include "Brain.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
 
-int main() {
+int main(void)
+{
+    // const Animal* meta = new Animal();
+    const Animal* j = new Dog();
+    const Animal* i = new Cat();
 
-    ClapTrap a;
-    a.info();
-    a.takeDamage(3);
-    a.info();
- 
-    std::cout << "------------------------------" << std::endl;
+    std::cout << j->getType() << " " << std::endl;
+    std::cout << i->getType() << " " << std::endl;
+    
+    i->makeSound(); //will output the cat sound!
+    j->makeSound();
+    // meta->makeSound();
 
-    ClapTrap b(a);
-    b.info();
-    b.takeDamage(3);
-    b.info();
-
-    std::cout << "------------------------------" << std::endl;
-
-    ClapTrap c;
-    c = b;
-    c.info();
-    b.takeDamage(3);
-
-    std::cout << "------------------------------" << std::endl;
-
-    ClapTrap d("lalala");
-    d.attack("coco");
-    d.takeDamage(4);
-    d.beRepaired(10);
-    d.info();
-
-    return 0;
+    // delete meta;
+    delete j;
+    delete i;
 }

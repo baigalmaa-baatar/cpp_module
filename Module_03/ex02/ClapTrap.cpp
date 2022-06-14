@@ -13,17 +13,17 @@
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(void) : _name("anon"), _hit_points (10), _energy_points (10), _attack_damage_points(0) {
-    std::cout << "Default constructor has called." << std::endl;
+    std::cout << "Default ClapTrap constructor has called." << std::endl;
     return ;
 }
 
-ClapTrap::ClapTrap(const std::string& name) : _name(name),_hit_points (10), _energy_points (10), _attack_damage_points(0){
+ClapTrap::ClapTrap(const std::string name) : _name(name),_hit_points (10), _energy_points (10), _attack_damage_points(0){
     std::cout << "Constructor ClapTrap has called." << std::endl;
     return ;
 }
 
 ClapTrap::ClapTrap(ClapTrap const & obj){
-    std::cout << "Copy constructor called." << std::endl;
+    std::cout << "Copy constructor ClapTrap called." << std::endl;
     *this = obj;
     return ;
 }
@@ -39,7 +39,7 @@ ClapTrap & ClapTrap::operator=(const ClapTrap & obj) {
 }
 
 ClapTrap::~ClapTrap() {
-    std::cout << "Destructor called." << std::endl;
+    std::cout << "Destructor ClapTrap called." << std::endl;
     return ;
 }
 
@@ -47,7 +47,7 @@ ClapTrap::~ClapTrap() {
  ---------------Getter functions--------------------
 ---------------------------------------------------*/
 
-const std::string& ClapTrap::getName(void) const {
+const std::string ClapTrap::getName(void) const {
     return _name;
 }
 
@@ -67,7 +67,7 @@ unsigned int ClapTrap::getAttackPoints(void) const {
  ---------------Function members--------------------
 ---------------------------------------------------*/
 
-void    ClapTrap::attack(const std::string& target){
+void    ClapTrap::attack(const std::string target){
     if (_hit_points < 1 || _energy_points < 1)
         std::cout << "There's not enought hit points or energy points to attack!" << std::endl;
     _energy_points -= 1;

@@ -23,7 +23,7 @@ class ScavTrap : public ClapTrap {
         ScavTrap();
         ScavTrap(std::string name);
         ScavTrap(ScavTrap const & obj);
-        virtual ~ScavTrap();                //just in case, making it virtual
+        virtual ~ScavTrap();
         
         ScavTrap & operator=(const ScavTrap & obj);
 

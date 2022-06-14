@@ -10,41 +10,36 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main() {
 
-    // ClapTrap boss("boss");
-    // ClapTrap bamboo("bamboo");
-
-    // boss.attack("bamboo");
-    // bamboo.beRepaired(10);
-    
-    ClapTrap a;
+    ScavTrap a;
     a.info();
-    a.takeDamage(3);
+    a.takeDamage(30);
     a.info();
  
     std::cout << "------------------------------" << std::endl;
 
-    ClapTrap b(a);
+    ScavTrap b(a);
     b.info();
-    b.takeDamage(3);
+    b.takeDamage(30);
     b.info();
 
     std::cout << "------------------------------" << std::endl;
 
-    ClapTrap c;
+    ScavTrap c;
     c = b;
     c.info();
-    b.takeDamage(3);
+    b.takeDamage(30);
 
     std::cout << "------------------------------" << std::endl;
 
-    ClapTrap d("lalala");
+    ScavTrap d("lalala");
     d.attack("coco");
-    d.takeDamage(4);
-    d.beRepaired(10);
+    d.takeDamage(40);
+    d.beRepaired(100);
+    d.guardGate();
     d.info();
 
     return 0;

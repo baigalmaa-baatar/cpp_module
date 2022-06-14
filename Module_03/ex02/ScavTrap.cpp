@@ -12,7 +12,7 @@
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(void) : ClapTrap (), _gate(true) {
+ScavTrap::ScavTrap(void) : ClapTrap (), _gate(false) {
     std::cout << "Default ScavTrap constructor has called." << std::endl;
     this->_name = "ScavTrap anon";
     this->_hit_points = 100;
@@ -21,7 +21,7 @@ ScavTrap::ScavTrap(void) : ClapTrap (), _gate(true) {
     return ;
 }
 
-ScavTrap::ScavTrap( std::string name) : ClapTrap (name), _gate (true) {
+ScavTrap::ScavTrap( std::string name) : ClapTrap (name), _gate (false) {
     std::cout << "Constructor ScavTrap has called." << std::endl;
     this->_name = "ScavTrap anon";
     this->_hit_points = 100;
@@ -59,7 +59,7 @@ void    ScavTrap::attack(const std::string target) {
 void    ScavTrap::guardGate(void) {
     if (_hit_points < 1 || _energy_points < 1)
         std::cout << "There's not enought hit points or energy points to get in Gate Mode" << std::endl;
-    if (_gate == true)
+    if (_gate)
         std::cout << this->getName() << " is in gate mode now" << std::endl;
     return ;
 }   

@@ -10,9 +10,10 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ex01
+NAME = ex02
 SRCS = main.cpp\
 		ClapTrap.cpp\
+		FragTrap.cpp\
 		ScavTrap.cpp
 
 OBJS	= $(SRCS:.cpp=.o)

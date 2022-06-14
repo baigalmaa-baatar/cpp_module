@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbaatar <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/10 21:32:24 by bbaatar           #+#    #+#             */
-/*   Updated: 2022/06/10 21:32:25 by bbaatar          ###   ########.fr       */
+/*   Created: 2022/06/11 11:54:45 by bbaatar           #+#    #+#             */
+/*   Updated: 2022/06/11 11:54:46 by bbaatar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef SCAVTRAP_H
-# define SCAVTRAP_H
+
+# ifndef FRAGTRAP_H
+# define FRAGTRAP_H
 
 # include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap {
+class FragTrap : public ClapTrap {
     private:
-		  bool	_gate;
+		  bool	_highFives;
 
     public:
-        ScavTrap();
-        ScavTrap(std::string name);
-        ScavTrap(ScavTrap const & obj);
-        virtual ~ScavTrap();                //just in case, making it virtual
+        FragTrap();
+        FragTrap(std::string name);
+        FragTrap(FragTrap const & obj);
+        virtual ~FragTrap();
         
-        ScavTrap & operator=(const ScavTrap & obj);
+        FragTrap & operator=(const FragTrap & obj);
 
-        void    attack(const std::string target);
-        void    guardGate(void);
-        int     getGate(void) const;
+        void    highFivesGuys(void);
+        int     getHhighFive(void) const;
+        void     setHighFive(bool highFives) ;
 };
 
 #endif
