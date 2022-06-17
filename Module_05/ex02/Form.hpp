@@ -26,6 +26,8 @@ class Form {
         bool    _isSigned;
         const int _gradeRequiredToSign;
         const int _gradeRequiredToExecute;
+        const std::string _target;
+        virtual void activity() const = 0;
 
     public:
         //*******************************************************
@@ -58,7 +60,7 @@ class Form {
         Form (int gradeRequiredToSign, int gradeRequiredToExecute);
         Form (std::string const & name, int gradeRequiredToSign, int gradeRequiredToExecute);
         Form (const Form & obj);
-        ~Form ();
+        virtual ~Form ();
         
         Form & operator=(const Form & obj);
         
@@ -71,11 +73,15 @@ class Form {
         int     getGradeRequiredToSign(void) const;
         int     getGradeRequiredToExecute(void) const;
 
+        const std::string & getTarget(void) const;
+
+
         //*******************************************************
         //******************Other member functions***************
         //*******************************************************
 
         void    beSigned(const Bureaucrat & obj);
+        void execute(const Bureaucrat& executor) const;
 };
 
 std::ostream& operator<<(std::ostream& os, const Form &a);

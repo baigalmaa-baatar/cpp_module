@@ -144,6 +144,9 @@ int     Form::getGradeRequiredToSign(void) const {
 int     Form::getGradeRequiredToExecute(void) const {
     return _gradeRequiredToExecute;
 }
+const std::string&    Form::getTarget(void) const {
+    return _target;
+}
 
 //*****************************************
 //**********Member functions***************
@@ -161,6 +164,19 @@ void    Form::beSigned(const Bureaucrat & obj) {
     }
     _isSigned = true;
     return ;
+}
+
+void Form::execute(const Bureaucrat& executor) const
+{
+    if (!_isSigned)
+    {
+        throw std::runtime_error("Error: It must be first signed!");
+    }
+    if (_gradeRequiredToExecute < executor.getGrade())
+    {
+        throw std::runtime_error("Error: the grade is too low!");
+    }
+    activity();
 }
 
 std::ostream& operator<<(std::ostream & os, const Form & obj)

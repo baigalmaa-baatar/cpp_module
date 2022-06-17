@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbaatar <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/16 22:16:47 by bbaatar           #+#    #+#             */
-/*   Updated: 2022/06/16 22:16:48 by bbaatar          ###   ########.fr       */
+/*   Created: 2022/06/15 20:41:03 by bbaatar           #+#    #+#             */
+/*   Updated: 2022/06/15 20:41:04 by bbaatar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_H
-# define FORM_H
+#ifndef BUREAUCRAT_H
+# define BUREAUCRAT_H
 
 #include <iostream>
 #include <string>
 #include <stdexcept>
-#include "Bureaucrat.hpp"
+#include "Form.hpp"
 
-class Bureaucrat;
+class Form;
 
-class Form {
+class Bureaucrat {
     private:
         const std::string _name;
-        bool    _isSigned;
-        const int _gradeRequiredToSign;
-        const int _gradeRequiredToExecute;
-
+        int _grade;
     public:
         //*******************************************************
         //*****************Exception classes*********************
@@ -50,34 +47,32 @@ class Form {
         //*******************************************************
         //************Orthodox canonical class form**************
         //*******************************************************
-
-        Form ();
-        explicit   Form (std::string const & name);
-        explicit   Form   (int grade);
-        Form (std::string const & name, int grade);
-        Form (int gradeRequiredToSign, int gradeRequiredToExecute);
-        Form (std::string const & name, int gradeRequiredToSign, int gradeRequiredToExecute);
-        Form (const Form & obj);
-        ~Form ();
+        Bureaucrat ();
+        explicit    Bureaucrat (std::string const & name);  //explicit meaning only in this input the constructor will created
+        explicit   Bureaucrat   (int grade);
+        Bureaucrat (std::string const & name, int grade);
+        Bureaucrat (const Bureaucrat & obj);
+        ~Bureaucrat ();
         
-        Form & operator=(const Form & obj);
+        Bureaucrat & operator=(const Bureaucrat & obj);
         
         //*******************************************************
-        //**********************Getters**************************
+        //******************Getters and Setters******************
         //*******************************************************
 
         const std::string & getName(void) const;
-        bool    getIsSigned(void) const;
-        int     getGradeRequiredToSign(void) const;
-        int     getGradeRequiredToExecute(void) const;
+        int         getGrade(void) const;
 
         //*******************************************************
         //******************Other member functions***************
         //*******************************************************
 
-        void    beSigned(const Bureaucrat & obj);
+        void    increaseGrade(void);
+        void    decreaseGrade(void);
+        void    signForm(Form & obj) const;
+        void    executeForm(const Form& form) const;
 };
 
-std::ostream& operator<<(std::ostream& os, const Form &a);
+std::ostream& operator<<(std::ostream& os, const Bureaucrat &a);
 
 #endif
