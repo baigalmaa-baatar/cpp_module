@@ -17,7 +17,7 @@
 
 int main(void)
 {
-    // const Animal* meta = new Animal();
+    // const Animal* default_animal = new Animal();
     const Animal* j = new Dog();
     const Animal* i = new Cat();
 
@@ -26,9 +26,9 @@ int main(void)
     
     i->makeSound(); //will output the cat sound!
     j->makeSound();
-    // meta->makeSound();
+    // default_animal->makeSound();
 
-    // delete meta;
+    // delete default_animal;
     delete j;
     delete i;
 }
