@@ -10,10 +10,8 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ex00
-SRCS = main.cpp\
-		Bureaucrat.cpp
-
+NAME = convert
+SRCS = main.cpp
 OBJS	= $(SRCS:.cpp=.o)
 CC		= c++
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
