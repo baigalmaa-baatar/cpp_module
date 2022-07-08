@@ -1,90 +1,54 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: bbaatar <marvin@42.fr>                     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/07 10:19:10 by bbaatar           #+#    #+#             */
-/*   Updated: 2022/07/07 10:19:11 by bbaatar          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include <iostream>
-#include <string>
+#include <cstdlib>
 #include "Array.hpp"
 
-//Class template video explanation:
-// https://www.youtube.com/watch?v=mQqzP9EWu58
-
-//Subscrite operator c++ [] :
-// https://www.geeksforgeeks.org/overloading-subscript-or-array-index-operator-in-c/
-
-int main(void)
+#define MAX_VAL 750
+int main(int, char**)
 {
-    std::cout << "\n******* Testing integer arrays *******" << std::endl;
-
-    Array<int> intArray(3);
-    intArray[0] = 10;
-    intArray[1] = 20;
-    intArray[2] = 30;
-
-    for (int i = 0; i < 3; i++)
+    Array<int> numbers(MAX_VAL);
+    int* mirror = new int[MAX_VAL];
+    srand(time(NULL));
+    for (int i = 0; i < MAX_VAL; i++)
     {
-        std::cout << intArray[i] << std::endl;
+        const int value = rand();
+        numbers[i] = value;
+        mirror[i] = value;
     }
-
-    std::cout << "\n******* Testing copy constructor *******" << std::endl;
-
-    Array<int> copyConst(intArray);
-    for (int i = 0; i < 3; i++)
+    //SCOPE
     {
-        std::cout << copyConst[i] << std::endl;
+        Array<int> tmp = numbers;
+        Array<int> test(tmp);
     }
 
-    std::cout << "\n******* Testing construction by copy assignment operator *******" << std::endl;
-
-    Array<int> copyConst2 = intArray;
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < MAX_VAL; i++)
     {
-        std::cout << copyConst2[i] << std::endl;
+        if (mirror[i] != numbers[i])
+        {
+            std::cerr << "didn't save the same value!!" << std::endl;
+            return 1;
+        }
     }
-
-    std::cout << "\n******* Testing integer subscrit operator *******" << std::endl;
-    try {
-        intArray[5] = 15;
+    try
+    {
+        numbers[-2] = 0;
     }
-    catch (std::exception & e) {
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    try
+    {
+        numbers[MAX_VAL] = 0;
+    }
+    catch(const std::exception& e)
+    {
         std::cerr << e.what() << '\n';
     }
 
-    std::cout << "\n******* Testing string arrays *******" << std::endl;
-
-    Array<std::string> strArray(3);
-    strArray[0] = "Hello";
-    strArray[1] = "World";
-    strArray[2] = "kkkk";
-
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < MAX_VAL; i++)
     {
-        std::cout << strArray[i] << std::endl;
+        numbers[i] = rand();
     }
-    
-    std::cout << "\n******* Testing string copy constructor *******" << std::endl;
-
-    Array<std::string> copyConstStr(strArray);
-    for (int i = 0; i < 3; i++)
-    {
-        std::cout << copyConstStr[i] << std::endl;
-    }
-
-    std::cout << "\n******* Testing string subscrit operator *******" << std::endl;
-    try {
-        strArray[5] = "Maybe gonna fail";
-    }
-    catch (std::exception & e) {
-        std::cerr << e.what() << '\n';
-    }
-
+    delete [] mirror;//
     return 0;
 }

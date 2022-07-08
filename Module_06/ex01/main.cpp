@@ -11,14 +11,15 @@
 /* ************************************************************************** */
 
 #include <iostream>
+#include <stdint.h>
 
 struct Data {
 	int	x;
 	int	y;
 };
 
-uintptr_t	serialize(Data* ptr){
-	return reinterpret_cast<uintptr_t> (ptr);
+std::uintptr_t	serialize(Data* ptr){
+	return reinterpret_cast<std::uintptr_t> (ptr);
 }
 
 Data*	deserialize(uintptr_t raw){
@@ -36,7 +37,7 @@ int	main(void){
 	std::cout << "y is:" << d.y << std::endl;
 	std::cout << "data's pointer address is :" << &d << std::endl;
 
-	uintptr_t raw =  serialize(&d);
+	std::uintptr_t raw =  serialize(&d);
 	Data* ptr = deserialize(raw);
 
 	std::cout << "x is:" << ptr->x << std::endl;
