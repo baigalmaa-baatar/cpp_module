@@ -24,7 +24,7 @@ int main(void)
     std::cout << "\n******* Testing float arrays *******" << std::endl;
 
     float    array2[3] = {10.01, 20.01, 30.01};
-    iter(array2, 3, func_output1);
+    iter(array2, 3, func_output1<float>);
 
     std::cout << "\n******* Testing string arrays *******" << std::endl;
 

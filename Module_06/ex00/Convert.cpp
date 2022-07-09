@@ -78,7 +78,10 @@ bool	isDigit(char *argv)
 char    Convert::convertToChar(void) {
 
     if (strlen(_str) == 1 && isalpha(_str[0]))
+    {
         return _str[0];
+    }
+
 	else if (isDigit(this->_str) == true)
 	{
 		try{
@@ -103,18 +106,21 @@ char    Convert::convertToChar(void) {
     }
 	_c = static_cast<char>(_str[0]);
 	if (_c > 127 || _c < -128)
+    {
 		throw Convert::ConversionNotPossible();
+    }
 	return 0;
 }
 
 int     Convert::convertToInt(void) {
 
-    if (strlen(_str) == 1)
+    if (strlen(_str) == 1 && isalpha(_str[0]))
         _i = _str[0];
-    else
-        _i = static_cast<int>(std::strtol(_str, NULL, 10));
+    else{
+        _i = static_cast<int>(std::strtod(_str, NULL));
+    }
     try {
-        if (_i >= INT_MAX && _i < INT_MIN)
+        if (_i >= 2147483647 || _i <= -2147483648)
             throw Convert::ConversionNotPossible();
         else
             return static_cast<int>(_i);
@@ -129,7 +135,7 @@ int     Convert::convertToInt(void) {
 float   Convert::convertToFloat(void) {
     
     try {
-        if (strlen(_str) == 1)
+        if (strlen(_str) == 1 && isalpha(_str[0]))
             _f = _str[0];
         else
             _f = static_cast<float>(strtof(_str, NULL));
@@ -145,7 +151,7 @@ float   Convert::convertToFloat(void) {
 double		Convert::convertToDouble(void) {
         
     try {
-        if (strlen(_str) == 1)
+        if (strlen(_str) == 1 && isalpha(_str[0]))
             _d = _str[0];
         else
             _d = static_cast<double>(std::strtold(_str, NULL));

@@ -69,27 +69,27 @@ void identify(Base& p) {
 		std::cout << "This is A" << std::endl;
 		return ;
 	}
-	catch(std::bad_cast &bc){}
+	catch(std::exception &bc){}
 	try
 	{
 		(void)dynamic_cast<B&>(p);
 		std::cout << "This is B" << std::endl;
 		return ;
 	}
-	catch(std::bad_cast &bc){}
+	catch(std::exception &bc){}
 	try
 	{
 		(void)dynamic_cast<C&>(p);
 		std::cout << "This is C" << std::endl;
 		return ;
 	}
-	catch(std::bad_cast &bc){}
+	catch(std::exception &bc){}
 }
 
 int	main(void){
 
 	/* initialize random seed: */
-	std::srand (std::time(NULL));
+	std::srand (time(NULL));
 
 	std::cout << "****************** Generating ******************" << std::endl;
 	Base *base = generate();

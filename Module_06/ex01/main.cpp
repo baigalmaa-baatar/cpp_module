@@ -18,8 +18,8 @@ struct Data {
 	int	y;
 };
 
-std::uintptr_t	serialize(Data* ptr){
-	return reinterpret_cast<std::uintptr_t> (ptr);
+uintptr_t	serialize(Data* ptr){
+	return reinterpret_cast<uintptr_t> (ptr);
 }
 
 Data*	deserialize(uintptr_t raw){
@@ -37,7 +37,7 @@ int	main(void){
 	std::cout << "y is:" << d.y << std::endl;
 	std::cout << "data's pointer address is :" << &d << std::endl;
 
-	std::uintptr_t raw =  serialize(&d);
+	uintptr_t raw =  serialize(&d);
 	Data* ptr = deserialize(raw);
 
 	std::cout << "x is:" << ptr->x << std::endl;
