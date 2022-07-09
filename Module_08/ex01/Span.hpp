@@ -25,7 +25,7 @@ class Span {
         //****** Canonical constructors and a destructor ********
         //*******************************************************
         Span ();
-        explicit Span (unsigned int maxNbrs);
+        Span (unsigned int maxNbrs);
         Span (const Span& obj);
         Span& operator= (const Span& obj);
         ~Span ();

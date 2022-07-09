@@ -3,37 +3,34 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: bben-yaa <bben-yaa@student.42.fr>          +#+  +:+       +#+         #
+#    By: bbaatar <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/02/19 11:26:55 by bben-yaa          #+#    #+#              #
-#    Updated: 2022/04/04 14:42:39 by bben-yaa         ###   ########.fr        #
+#    Created: 2022/05/31 16:01:50 by bbaatar           #+#    #+#              #
+#    Updated: 2022/05/31 16:01:52 by bbaatar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS 	=	main.cpp \
-			Span.cpp
-
-EXEC	= exec
-
-OBJ		= $(SRCS:.cpp=.o)
-RM		= rm -rf
+NAME = ex02
+SRCS = main.cpp
+OBJS	= $(SRCS:.cpp=.o)
 CC		= c++
-FLAGS	= -Wall -Werror -Wextra -std=c++98
+CFLAGS	= -Wall -Wextra -Werror -std=c++98
+RM		= rm -f
 
-%.o : %.cpp
-	$(CC) -c $(CFLAGS) $(FLAGS) -o $@ $<
-				
-${EXEC}:	${OBJ}
-			$(CC) ${FLAGS} ${OBJ} -o ${EXEC}
+all		:	$(NAME)
 
-all		: ${EXEC}
+.cpp.o	:
+			$(CC) $(CFLAGS) -c $< -o $(<:.cpp=.o)
+
+$(NAME)	:	$(OBJS)
+			$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 clean	:
-				${RM} ${OBJ}
+			$(RM) $(OBJS)
 
-fclean	:	clean
-				${RM} ${EXEC}
+fclean	:
+			$(RM) $(NAME) $(OBJS)
 
-re		:	fclean all
+re		: fclean all
 
-.PHONY : all clean fclean re
+.PHONY	: all clean fclean re
