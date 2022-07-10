@@ -47,11 +47,11 @@ class Span {
 
         //Insert range of iterators: (1, 100) etc
 
-        //current _multiset size : 10
-        //additional numbers to be inserted : 100
-        //maxsize = 50
-        //50 - 10 = 40
-        //40 < 100 means capacity will be over.
+        // maxsize = 50
+        // current _multiset size : 10
+        // additional numbers to be inserted : 100
+        // 50 - 10 = 40
+        // 40 < 100 means capacity will be over.
         
         template <typename T>
         void    addNumber(T begin, T end) {

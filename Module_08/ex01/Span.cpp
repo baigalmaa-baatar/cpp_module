@@ -87,5 +87,6 @@ unsigned int Span::longestSpan(void) const{
     {
         throw std::logic_error("Can't calculate shortest span because there isn't many numbers stored.");
     }
+    //rbegin is actually the last element of your container. end is one past the end of the container
     return (*_multiset.rbegin() - *_multiset.begin());
 }

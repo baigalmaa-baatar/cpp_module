@@ -30,6 +30,7 @@ int main(void)
         std::cout << "Element not found in container\n";
     
     std::cout << "\n***** Not found example (container Vector) ******\n" << std::endl;
+    
     std::vector<int>::iterator it_not_found = easyfind(myvector, 100);
     if (it_not_found != myvector.end())
         std::cout << "Element found in container: " << *it_not_found << '\n';
