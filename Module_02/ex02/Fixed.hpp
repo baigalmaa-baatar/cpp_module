@@ -38,7 +38,11 @@ class Fixed {
         bool operator<(const Fixed& obj) const;
         bool operator>=(const Fixed& obj) const;
         bool operator<=(const Fixed& obj) const;
+
         bool operator==(const Fixed& obj) const;
+        friend bool operator==(left, right);
+
+
         bool operator!=(const Fixed& obj) const;
         
         // 4 arithmetic operators: +, -, *, and /
@@ -61,5 +65,7 @@ class Fixed {
 };
 
 std::ostream& operator<<(std::ostream& os, const Fixed &obj);
-
+bool operator==(const Fixed& a, const Fixed& right);
+template <class T>
+    bool operator==(const Fixed& a, const T& right);
 #endif
