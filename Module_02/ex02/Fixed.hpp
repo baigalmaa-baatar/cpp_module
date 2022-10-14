@@ -61,5 +61,5 @@ class Fixed {
 };
 
 std::ostream& operator<<(std::ostream& os, const Fixed &obj);
-
+//checking something
 #endif
