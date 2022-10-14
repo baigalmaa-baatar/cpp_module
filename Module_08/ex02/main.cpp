@@ -42,7 +42,7 @@ int main()
             std::cout << *it << std::endl;
             ++it;
         }
-        std::stack<int> s(mstack);
+        // std::stack<int> s(mstack);
     }
 
     std::cout << "\n ********** Testing int list ********** \n" << std::endl;

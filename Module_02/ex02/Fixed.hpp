@@ -38,7 +38,11 @@ class Fixed {
         bool operator<(const Fixed& obj) const;
         bool operator>=(const Fixed& obj) const;
         bool operator<=(const Fixed& obj) const;
+
         bool operator==(const Fixed& obj) const;
+        friend bool operator==(left, right);
+
+
         bool operator!=(const Fixed& obj) const;
         
         // 4 arithmetic operators: +, -, *, and /
