@@ -11,56 +11,43 @@
 /* ************************************************************************** */
 
 #include "Animal.hpp"
-#include "Brain.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
 
 int main(void)
 {
-    const Animal* animals[4];
-
-    std::cout << "--------------------Creating cat dog brains--------------------" << std::endl;
-
-    for (int i = 0; i < 2; i++)
     {
-        animals[i] = new Dog();
+        const Animal *animals[10];
+        for (size_t i = 0; i < 10; i++)
+        {
+            if (i % 2)
+            {
+                animals[i] = new Dog();
+            }
+            else
+            {
+                animals[i] = new Cat();
+            }
+        }
+        for (size_t i = 0; i < 10; i++)
+        {
+            delete animals[i];
+        }
     }
-    for (int i = 2; i < 4; i++)
     {
-        animals[i] = new Cat();
+        const Dog *dog = new Dog();
+        const Cat *cat = new Cat();
+
+        dog->getBrain().setIdeas(1, "sit");
+        std::cout << dog->getBrain().getIdeas(1)<< " " << std::endl;
+        
+        cat->getBrain().setIdeas(1, "eat");
+        std::cout << cat->getBrain().getIdeas(1)<< " " << std::endl;
+
+        delete dog, delete cat;
     }
-
-    std::cout << "--------------------Deleting cat dog brains--------------------" << std::endl;
-
-    for (int i = 0; i < 4; i++)
-    {
-        delete animals[i];
-    }
-
-    std::cout << "--------------------Testing deep copy--------------------" << std::endl;
-
-    Cat cat1;
-    Cat cat2;
-
-    cat1.setBrain(1, "eat fast");
-    std::cout << "cat1's brain: " << cat1.getBrain(1) << std::endl;
-
-    cat2 = cat1;
-    cat2.setBrain(1, "sleep!!!");
-    std::cout << "cat2's brain: " << cat2.getBrain(1) << std::endl;
-    
-    std::cout << "cat1s' brain address : " << &(cat1.getBrain(1)) << std::endl;
-    std::cout << "cat2s' brain address : " << &(cat2.getBrain(1)) << std::endl;
-
-    std::cout << "--------------------It shouldn't have changed:--------------------" << std::endl;
-
-    std::cout << "cat1's brain: " << cat1.getBrain(1) << std::endl;                     //yes
-
-    Dog dog1;
-    Dog dog2(dog1);
-
-    dog1.setBrain(1, "run!!!!!");
-    std::cout << "dog1 : " << dog1.getBrain(1) << std::endl;
 
     return 0;
 }

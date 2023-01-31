@@ -29,10 +29,7 @@ all		:	$(NAME)
 			$(CC) $(CFLAGS) -c $< -o $(<:.cpp=.o)
 
 $(NAME)	:	$(OBJS)
-			$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
-
-sani	:	$(OBJS)
-		$(CC) $(CFLAGS) -fsanitize=address $(OBJS) -o $(NAME)
+			$(CC) $(CFLAGS) -g3 $(OBJS) -o $(NAME)
 
 clean	:
 			$(RM) $(OBJS)

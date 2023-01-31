@@ -1,34 +1,22 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: bbaatar <marvin@42.fr>                     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/14 14:18:05 by bbaatar           #+#    #+#             */
-/*   Updated: 2022/06/14 14:18:06 by bbaatar          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef BRAIN_H
 # define BRAIN_H
 
-#include <string>
 #include <iostream>
 
-class Brain {
-
+class Brain
+{
     protected:
-        std::string _ideas[100];
+        std::string      _ideas[100];
     public:
-        Brain(void);
-        Brain(Brain & obj);
-        ~Brain();
+        Brain();//default constructor
+        Brain(const std::string ideas[100]); //constructor with parameters
+        Brain(Brain const &obj); //copy constructor
+        Brain &operator=(const Brain&other); //copy assignment operator
 
-        Brain & operator=(Brain & obj);
+        virtual ~Brain();
 
-        const std::string& getIdeas(int index) const;
-        void setIdeas(int index, const std::string& str);
+        const std::string     &getIdeas(size_t index_of_ideas) const;
+        void            setIdeas(size_t index_of_ideas, const std::string &one_idea);
 };
 
-#endif
+# endif

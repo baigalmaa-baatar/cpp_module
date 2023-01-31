@@ -1,50 +1,43 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Brain.cpp                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: bbaatar <marvin@42.fr>                     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/14 14:17:59 by bbaatar           #+#    #+#             */
-/*   Updated: 2022/06/14 14:18:01 by bbaatar          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "Brain.hpp"
 
-Brain::Brain (void) {
-    std::cout << "Brain constructor has called." << std::endl;
-    for (int i = 0; i < 100; i++)
-    {
-        this->_ideas[i] = "Eat";
-    }
-    return ;
+Brain::Brain()
+{
+    for (size_t i = 0; i < 100; i++)
+        _ideas[i] = "I want to sleep.\n";
 }
-
-Brain::Brain(Brain & obj) {
-    std::cout << "Copy Constructor Brain called." << std::endl;
-    *this = obj;
-    return ;
+Brain::Brain(const std::string ideas[100])
+{
+    for (size_t i = 0; i < 100; i++)
+        _ideas[i] = ideas[i];
 }
-
-Brain & Brain::operator=(Brain & obj) {
-    std::cout << "Copy Assignment Brain operator called" << std::endl;
-    for (int i = 0; i < 100; ++i)
-    {
-        this->setIdeas(i, obj.getIdeas(i));
-    }
+Brain::Brain(Brain const &obj)
+{
+    for (size_t i = 0; i < 100; i++)
+        _ideas[i] = obj._ideas[i];
+}
+Brain &Brain::operator=(const Brain &other)
+{
+    for (size_t i = 0; i < 100; i++)
+        this->_ideas[i] = other._ideas[i];
     return *this;
 }
 
-Brain:: ~Brain(void) {
-    std::cout << "Destructor Brain called." << std::endl;
-    return ;
- }
+Brain::~Brain(){
+    // for (size_t i = 0; i < 100; i++)
+    //     if (this->_ideas[i].length() > 0)
+    //         this->_ideas[i] = ""; //oops not necessary?
+};
 
-const std::string& Brain::getIdeas(int index) const {
-     return _ideas[index];
- }
+const std::string &Brain::getIdeas(size_t index_of_ideas) const
+{
+    static const std::string res = "Error\n";
+    if (index_of_ideas >= 0 && index_of_ideas < 100)
+        return (_ideas[index_of_ideas]);
+    return res;
+}
 
-void Brain::setIdeas(int index, const std::string& str) {
-    _ideas[index] = str;
- }
+void Brain::setIdeas(size_t index_of_ideas, const std::string &one_idea)
+{
+    if (index_of_ideas >= 0 && index_of_ideas < 100 && one_idea.length() > 0)
+        _ideas[index_of_ideas] = one_idea;
+}

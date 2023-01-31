@@ -18,36 +18,40 @@
 
 int main(void)
 {
-    const Animal* default_animal = new Animal();
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
+    {
+        const Animal *default_animal = new Animal();
+        const Animal *j = new Dog();
+        const Animal *i = new Cat();
 
-    std::cout << j->getType() << " " << std::endl;
-    std::cout << i->getType() << " " << std::endl;
-    
-    i->makeSound(); //will output the cat sound!
-    j->makeSound();
-    default_animal->makeSound();
+        std::cout << j->getType() << " " << std::endl;
+        std::cout << i->getType() << " " << std::endl;
 
-    delete default_animal;
-    delete j;
-    delete i;
+        i->makeSound(); // will output the cat sound!
+        j->makeSound();
+        default_animal->makeSound();
 
-    std::cout << " " << std::endl;
-    std::cout << "*************** Wrong Animal and Wrong Cat part *************** " << std::endl;
-    std::cout << " " << std::endl;
+        delete default_animal;
+        delete j;
+        delete i;
+    }
 
-    const WrongAnimal* wrong_default_animal = new WrongAnimal();
-    const WrongAnimal* wrong_j = new WrongCat();
+    {
+        std::cout << " " << std::endl;
+        std::cout << "*************** Wrong Animal and Wrong Cat part *************** " << std::endl;
+        std::cout << " " << std::endl;
 
-    std::cout << wrong_default_animal->getType() << " " << std::endl;
-    std::cout << wrong_j->getType() << " " << std::endl;
-    
-    wrong_default_animal->makeSound();
-    wrong_j->makeSound();
+        const WrongAnimal *wrong_default_animal = new WrongAnimal();
+        const WrongAnimal *wrong_j = new WrongCat();
 
-    delete wrong_default_animal;
-    delete wrong_j;
+        std::cout << wrong_default_animal->getType() << " " << std::endl;
+        std::cout << wrong_j->getType() << " " << std::endl;
+
+        wrong_default_animal->makeSound();
+        wrong_j->makeSound();
+
+        delete wrong_default_animal;
+        delete wrong_j;
+    }
 
     return 0;
 }

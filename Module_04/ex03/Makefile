@@ -10,12 +10,12 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ex01
+NAME = ex03
 SRCS = main.cpp\
-		Animal.cpp\
-		Dog.cpp\
-		Cat.cpp\
-		Brain.cpp
+		AMateria.cpp\
+		Ice.cpp\
+		ICharacter.cpp\
+		IMateriaSource.cpp
 
 OBJS	= $(SRCS:.cpp=.o)
 CC		= c++
@@ -28,7 +28,7 @@ all		:	$(NAME)
 			$(CC) $(CFLAGS) -c $< -o $(<:.cpp=.o)
 
 $(NAME)	:	$(OBJS)
-			$(CC) $(CFLAGS) -g3 $(OBJS) -o $(NAME)
+			$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 clean	:
 			$(RM) $(OBJS)
