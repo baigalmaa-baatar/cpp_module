@@ -1,36 +1,22 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Contact.hpp                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: bbaatar <marvin@42.fr>                     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/31 16:01:21 by bbaatar           #+#    #+#             */
-/*   Updated: 2022/05/31 16:01:22 by bbaatar          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef CONTACT_H
 # define CONTACT_H
 
 #include <iostream>
-#include <string.h>
 
-class Contact{
+class Contact
+{
+    private:
+        std::string     _first_name;
+        std::string     _last_name;
+        std::string     _nickname;
+        std::string     _darkest_secret;
+        int              _phone_number;
+    
     public:
         Contact();
+        Contact(Contact const &obj);
+        Contact &operator=(const Contact &other);
         ~Contact();
-
-        void    addContact();
-        void    displayAll();
-        void    displayOne(void);
-
-    private:
-        std::string _firstName;
-        std::string _lastName;
-        std::string _nickname;
-        std::string _phoneNumber;
-        std::string _darkestSecret;
 };
 
-#endif
+# endif
