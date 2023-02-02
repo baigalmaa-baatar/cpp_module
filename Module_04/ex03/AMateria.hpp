@@ -2,6 +2,7 @@
 #define AMATERIA_H
 
 #include "ICharacter.hpp"
+#include <iostream>
 
 class AMateria
 {
@@ -10,6 +11,7 @@ class AMateria
 
     public:
         AMateria(std::string const &type);
+        virtual ~AMateria () {}
         AMateria(AMateria const &obj);
         AMateria &operator=(AMateria const &other);
 

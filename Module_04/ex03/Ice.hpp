@@ -9,9 +9,10 @@ class Ice : public AMateria
         Ice();
         Ice(Ice const &obj);
         Ice &operator=(Ice const &other);
+        virtual ~Ice() {}
 
-        Ice *clone();
-        
+        Ice *clone() const;
+        void use(ICharacter &target);
 };
 
 #endif
