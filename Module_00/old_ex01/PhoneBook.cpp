@@ -51,7 +51,6 @@ void    PhoneBook::search(void)
         contacts[i].displayOne();
         i++;
     }
-
     while (1)
     {
         std::cout << "\001\033[32m\002Enter the search index: \001\033[0m\002 " << std::endl;

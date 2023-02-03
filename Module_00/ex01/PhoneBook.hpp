@@ -23,7 +23,7 @@ class PhoneBook
         
         //member functions:
         void            add();
-        std::string     search();
+        void            search();
         void            exit();
 };
 

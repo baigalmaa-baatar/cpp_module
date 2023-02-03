@@ -37,26 +37,28 @@ void PhoneBook::displayAllContacts()
 
 int PhoneBook::checkIndex(std::string input_str)
 {
-    int indx = (int)strtoul (input_str.c_str(), NULL, 11);
-    if (indx < 0 || indx > 8)
+    int indx = (int)strtoul(input_str.c_str(), NULL, 11);
+    if (indx < 0 || indx > 7)
         return -1;
     return indx;
 }
 
-int PhoneBook::search()
+void    PhoneBook::search()
 {
     displayAllContacts();
     std::string input_str;
-    std::cout << "Enter a contact index number :";
-    std::getline(std::cin, input_str);
-    int indx = checkIndex(input_str);
-    if (indx == -1)
+    int indx = 0;
+    while (1)
     {
-        std::cout << "Enter 0 to 8 " << std::endl;
-        return 0;
+        std::cout << "Enter 0 to 7 :";
+        std::getline(std::cin, input_str);
+        int indx = checkIndex(input_str);
+        if (indx == -1)
+            std::cout << "Enter 0 to 7 :" << std::endl;
+        else
+            break;
     }
     contacts[indx].displayOne();
-    return 1;
 }
 
 void PhoneBook::exit()

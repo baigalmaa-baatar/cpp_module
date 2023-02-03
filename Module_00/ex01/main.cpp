@@ -18,8 +18,8 @@ int main(void)
         }
         else if (command == "search")
         {
-            if (!phonebook.search())
-                //ene hurtel hiisen
+            phonebook.search();
+                
         }
         else if (command == "exit")
         {
