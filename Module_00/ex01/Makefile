@@ -11,7 +11,9 @@
 # **************************************************************************** #
 
 NAME = phonebook
-SRCS = PhoneBook.cpp Contact.cpp main.cpp
+SRCS = 	main.cpp\
+		PhoneBook.cpp \
+		Contact.cpp 
 
 OBJS = ${SRCS:.c=.o}
 CC		= clang++

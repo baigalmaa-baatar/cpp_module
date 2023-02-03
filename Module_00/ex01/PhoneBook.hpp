@@ -1,25 +1,30 @@
 #ifndef PHONEBOOK_H
 # define PHONEBOOK_H
 
-#include <iostream>
 #include "Contact.hpp"
 
 class PhoneBook
 {
     private:
-        std::string     _contact;
-    
+        size_t      _idx;
+
     public:
         PhoneBook();
         PhoneBook(PhoneBook const &obj);
         PhoneBook &operator=(const PhoneBook &other);
         ~PhoneBook();
 
-        Contact *contacts;
-        //functions:
-        void    add();
-        void    search();
-        void    exit();
+        Contact contacts[8];
+        
+        //util functions:
+
+        int     checkIndex(std::string str);
+        void    displayAllContacts();
+        
+        //member functions:
+        void            add();
+        std::string     search();
+        void            exit();
 };
 
 # endif
